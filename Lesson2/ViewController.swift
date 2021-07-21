@@ -76,8 +76,16 @@ var stringVariable: String = """
         }
     
     
+    var realName = "Nikolay"
+        var name = "Nikolay"
     
-    
+        
+        switch (realName) {
+        case name: let nameFemely = realName + "Xrutskiy"
+            print (nameFemely)
+        case "nik": "не мое"
+        default: "не мое имя"
+        }
     
     
     
