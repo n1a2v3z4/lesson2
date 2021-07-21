@@ -93,6 +93,20 @@ var stringVariable: String = """
             print ("не равно")
         }
     
+   let age = 23
+        
+        
+        switch (age) {
+        case 0..<10: print ("ребенок")
+        case 10..<18: print ("подросток")
+        case 18..<30: print ("молодой")
+        case 30..<60: print ("взрослый")
+        default:
+            print ("пожилой")
+        }
+    
+       
+        
     }
 
 
