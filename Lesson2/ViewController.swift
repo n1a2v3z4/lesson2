@@ -84,10 +84,10 @@ var stringVariable: String = """
         case name: let nameFemely = realName + "Xrutskiy"
             print (nameFemely)
         case "nik": "не мое"
-        default: "не мое имя"  } //или break вместо default для выхода из switch 
+        default: "не мое имя"  } //или break вместо default для выхода из switch
     
     
-    
+   //  || оператор или.   && оператор и
     
     }
 
