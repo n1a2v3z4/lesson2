@@ -93,7 +93,7 @@ class ViewController: UIViewController {
    
     //если делится на 400 или 4 и не делится на 100
     
-        let Year: Double = 2020
+        let Year: Double = 700
         
         if ((Year / 400).truncatingRemainder(dividingBy: 1))*10 == 0 {
             print("\(Year) - високосный")
@@ -101,12 +101,21 @@ class ViewController: UIViewController {
             if ((Year / 100).truncatingRemainder(dividingBy: 1))*10 == 0 {
                 print("\(Year) - не високосный")
             } else {
-                if (Year / 4).truncatingRemainder(dividingBy: 1)*10 == 0 && (Year / 100).truncatingRemainder(dividingBy: 1)*10 != 0 {
+                if (Year / 4).truncatingRemainder(dividingBy: 1)*10 == 0  {
                     print("\(Year) - високосный")
                 } else {
                     print("\(Year) - не високосный")
                 }
         }
+    }
+
+
+// 2 вариант
+if ((Year / 4).truncatingRemainder(dividingBy: 1)*10 == 0 && (Year / 100).truncatingRemainder(dividingBy: 1)*10 != 0) || (Year / 400).truncatingRemainder(dividingBy: 1)*10 == 0 {
+    print("\(Year) - високосный")
+} else
+    {
+    print("\(Year) - не високосный")
     }
 }
 }
