@@ -8,108 +8,105 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-  
-    
-   
-    var variable: Int = 123
-    
-    var string: String = "asd\nйцу"  //перевод на новую строку
-   
-var stringVariable: String = """
-    qwe
-    sda
-    fvxz
-    erg
-    """
-    //все значения с новой строки
-    
-    var doubleVariable = 1.234
-    
-    let z: Int8 = 127 // от -128 до 128 = 256
-    
-    let z1: Int8 = 125
-    
-    var charVariable: Character = "a"
-    
-    var boolVariable: Bool = true
-    
-   
-  
-    
-  
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    print (string)
-        print (stringVariable)
-        
-        let equalVariable: Bool =  z != z1 //сравнение
-        
-        print (equalVariable, z1) //вывод нескольких переменных через пробел
-    
-      
-    
-        
-        let string1: String = "123"
-        let int1: Int = Int(string1)!    //строку переделали в
-        print (int1)
-        
-        
-        let double: Double = 123.213234231324232
-        let float: Float = Float(double)       //из double перевели во float
-        
-        print (float)
-        
-        
-        let int2: Int = 123
-        let float2: Float = 123
-        let double2: Double = Double(int2) / Double(float2)
-        print(double2)
+
+        summOfIntegerAndDecimalPartOfNumber()
+        findIsNumberOdd()
+        findIsYearLeap()
+    }
     
     
-        switch "1234"{
-        case "1234": print (1234)
-        case "123": print (123)
-        default: print ("нет значения")
-        }
-    
-    
-    var realName = "Nikolay"
-        var name = "Nikolay"
-    
-        
-        switch (realName) {
-        case name: let nameFemely = realName + "Xrutskiy"
-            print (nameFemely)
-        case "nik": "не мое"
-        default: "не мое имя"  } //или break вместо default для выхода из switch
-    
-    
-   //  || оператор или.   && оператор и
-        
-        if !("123" == "123") {  //если они не равны   или 123 != 123
-            print ("не равно")
-        }
-    
-   let age = 23
-        
-        
-        switch (age) {
-        case 0..<10: print ("ребенок")
-        case 10..<18: print ("подросток")
-        case 18..<30: print ("молодой")
-        case 30..<60: print ("взрослый")
-        default:
-            print ("пожилой")
-        }
-    
-       
+    func summOfIntegerAndDecimalPartOfNumber() {
+        /* Задача 1. Дается два дробных числа. Нужно найти сумму их целых частей и сумму дробных частей.
+         Пример:
+         
+         Дано:
+         число1 = 9.2
+         число2 = 1.5
+         
+         В результате получаем:
+         суммаДробныхЧастей: 7
+         суммаЦелыхЧастей: 10
+         */
+        let number1 = 9.2
+        let number2 = 1.56
+        let summOfInteger = Int(number1) + Int(number2)
+        let numberString1 = String(number1)
+        let numberString2 = String(number2)
+        let massNumber1 = numberString1.components(separatedBy: ".")
+        let massNumber2 = numberString2.components(separatedBy: ".")
+        let summOfDecimal = Int(massNumber1 [1])! + Int(massNumber2 [1])!
+        print ("сумма целых частей \(summOfInteger)")
+        print ("сумма дробных частей \(summOfDecimal)")
         
     }
+    
+    func findIsNumberOdd() {
+        /* Задача 2. Дается целое число. Нужно проверить является ли число четным.
+         Если четное, то пишем в консоль "Четное", если нечетное, то пишем "Нечетное"
+         
+         Пример 1:
+         
+         Дано:
+         число = 10
+         
+         В результате получаем:
+         "Четное"
+         
+         Пример 2:
+         Дано:
+         число = 9
+         
+         В результате получаем:
+         "Нечетное"
+         */
+        let number:Double = 7
+        if ((number / 2).truncatingRemainder(dividingBy: 1))*10 == 0 { //усечение остатка
+            print ("\(number) - четное")
+        } else {print ("\(number) - нечетное")
+            
+        }
+    }
+    
+    
+    
+    func findIsYearLeap() {
+        /* Задача 3(очень сложная). Дается целое положительное число, которое представляет собой год, нужно проверить является ли этот год високосным. Если високосный, то выводим в консоль "Високосный", если не високосный, то выводим в консоль "Обычный"
+         
 
-
+         Пример 1:
+         
+         Дано:
+         год = 1980
+         
+         В результате получаем:
+         "Високосный"
+         
+         Пример 2:
+         Дано:
+         год = 1978
+         
+         В результате получаем:
+         "Обычный"
+         */
+   
+    //если делится на 400 или 4 и не делится на 100
+    
+        let Year: Double = 2020
+        
+        if ((Year / 400).truncatingRemainder(dividingBy: 1))*10 == 0 {
+            print("\(Year) - високосный")
+        } else {
+            if ((Year / 100).truncatingRemainder(dividingBy: 1))*10 == 0 {
+                print("\(Year) - не високосный")
+            } else {
+                if (Year / 4).truncatingRemainder(dividingBy: 1)*10 == 0 && (Year / 100).truncatingRemainder(dividingBy: 1)*10 != 0 {
+                    print("\(Year) - високосный")
+                } else {
+                    print("\(Year) - не високосный")
+                }
+        }
+    }
 }
-
-
+}
