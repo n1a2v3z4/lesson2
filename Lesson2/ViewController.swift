@@ -63,8 +63,8 @@ class ViewController: UIViewController {
          */
         let number:Double = 7
         if ((number / 2).truncatingRemainder(dividingBy: 1))*10 == 0 { //усечение остатка
-            print ("\(number) - четное")
-        } else {print ("\(number) - нечетное")
+            print ("\(Int(number)) - четное")
+        } else {print ("\(Int(number)) - нечетное")
             
         }
     }
@@ -96,15 +96,15 @@ class ViewController: UIViewController {
         let Year: Double = 700
         
         if ((Year / 400).truncatingRemainder(dividingBy: 1))*10 == 0 {
-            print("\(Year) - високосный")
+            print("\(Int(Year)) - високосный")
         } else {
             if ((Year / 100).truncatingRemainder(dividingBy: 1))*10 == 0 {
-                print("\(Year) - не високосный")
+                print("\(Int(Year)) - не високосный")
             } else {
                 if (Year / 4).truncatingRemainder(dividingBy: 1)*10 == 0  {
-                    print("\(Year) - високосный")
+                    print("\(Int(Year)) - високосный")
                 } else {
-                    print("\(Year) - не високосный")
+                    print("\(Int(Year)) - не високосный")
                 }
         }
     }
@@ -112,10 +112,10 @@ class ViewController: UIViewController {
 
 // 2 вариант
 if ((Year / 4).truncatingRemainder(dividingBy: 1)*10 == 0 && (Year / 100).truncatingRemainder(dividingBy: 1)*10 != 0) || (Year / 400).truncatingRemainder(dividingBy: 1)*10 == 0 {
-    print("\(Year) - високосный")
+    print("\(Int(Year)) - високосный")
 } else
     {
-    print("\(Year) - не високосный")
+    print("\(Int(Year)) - не високосный")
     }
 }
 }
